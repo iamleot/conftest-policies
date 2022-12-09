@@ -1,0 +1,28 @@
+name: Check and validate Conftest Rego policies
+
+'on':
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  CONFTEST_VERSION: "0.36.0"
+
+jobs:
+  conftest:
+    name: Check and validate Conftest Rego policies
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install conftest
+        run: |
+          mkdir -p "${HOME}/.local/bin"
+          curl -sL "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" | tar xzf - -C "${HOME}/.local/bin" conftest
+      - name: Checking Rego formatting style
+        run: |
+          make check-fmt
+      - name: Unit testing conftest policies
+        run: |
+          make test
