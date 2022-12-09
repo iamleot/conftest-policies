@@ -1,0 +1,14 @@
+name: This is a workflow with a job not documented
+
+jobs:
+  documented:
+    name: This is a documented job
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Documented step in a documented job
+        run: echo "Something"
+  undocumented:
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: Documented step in an undocumented job
+        run: echo "Something else"
