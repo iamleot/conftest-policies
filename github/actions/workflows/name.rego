@@ -14,13 +14,19 @@
 #   description: Workflow syntax for GitHub Actions
 package github.actions.workflows.name
 
+import data.github.actions.workflows.utils as utils
+
 deny_no_name_in_workflow[msg] {
+	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	utils.is_github_workflows(f)
 	not input.name
 
 	msg := "Workflow should have a `name` key"
 }
 
 deny_no_name_in_job[msg] {
+	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	utils.is_github_workflows(f)
 	input.jobs[job]
 	not input.jobs[job].name
 
@@ -28,6 +34,8 @@ deny_no_name_in_job[msg] {
 }
 
 deny_no_name_in_step[msg] {
+	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	utils.is_github_workflows(f)
 	input.jobs[job].steps[step]
 	not input.jobs[job].steps[step].name
 
