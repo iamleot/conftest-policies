@@ -1,0 +1,17 @@
+name: Test suite with no timeout
+testcases:
+  - name: ok
+    steps:
+      - type: http
+        method: GET
+        timeout: 10
+        url: https://www.example.org/timeout/here/ok
+  - name: not-ok
+    steps:
+      - type: http
+        method: GET
+        timeout: 5
+        url: https://www.example.org/timeout/here/too/ok
+      - type: http
+        method: GET
+        url: https://www.example.org/not/ok
