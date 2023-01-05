@@ -12,8 +12,9 @@ test_deny_no_timeout {
 	deny_no_timeout with input as cfg
 }
 
-test_ok_all_timeout {
-	cfg := parse_config_file("ok_timeout.yml")
+test_warn_zero_timeout {
+	cfg := parse_config_file("zero_timeout.yml")
 
-	deny_no_timeout with input as cfg
+	count(deny_no_timeout) == 0 with input as cfg
+	warn_zero_timeout with input as cfg
 }
