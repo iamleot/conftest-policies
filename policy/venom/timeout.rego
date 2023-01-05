@@ -4,6 +4,9 @@
 #  Test steps can hangs indefinitely if they do not define a `timeout`.
 #
 #  Always define a `timeout` in all tests to avoid that.
+#
+#  If for some reason this needs to be bypassed, explicitly set `timeout`
+#  to 0.
 # related_resources:
 # - ref: https://cwe.mitre.org/data/definitions/400.html
 #   description: 'CWE-400: Uncontrolled Resource Consumption'
@@ -15,6 +18,15 @@ deny_no_timeout[msg] {
 
 	msg := sprintf(
 		"Test case `%v` of step `%v` should have a `timeout`",
+		[testcase, step],
+	)
+}
+
+warn_zero_timeout[msg] {
+	input.testcases[testcase].steps[step].timeout == 0
+
+	msg := sprintf(
+		"Test case `%v` of step `%v` has an infinite `timeout`",
 		[testcase, step],
 	)
 }
