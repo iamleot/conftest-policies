@@ -1,0 +1,4 @@
+testcases:
+  - name: no-name
+    steps:
+      - script: echo "Test suite with no name, not ok!"
