@@ -18,3 +18,9 @@ test_deny_no_name_in_testcase {
 
 	deny_no_name_in_testcase with input as cfg
 }
+
+test_deny_no_name_in_step {
+	cfg := parse_config_file("no_name_step.yml")
+
+	deny_no_name_in_step with input as cfg
+}
