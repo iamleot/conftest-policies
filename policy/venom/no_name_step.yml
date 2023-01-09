@@ -1,0 +1,7 @@
+name: Test suite with a step in a test case with no name
+testcases:
+  - name: test-case-name
+    steps:
+      - name: ok
+        script: echo "This test step has a name, ok!"
+      - script: echo "This test step has no name, not ok!"
