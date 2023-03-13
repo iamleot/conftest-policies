@@ -1,0 +1,6 @@
+name: Testing setup-go (using setup-go without any with)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-go@v3
