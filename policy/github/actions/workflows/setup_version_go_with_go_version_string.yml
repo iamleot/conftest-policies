@@ -1,0 +1,8 @@
+name: Testing setup-go (using setup-go with a string)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.20'

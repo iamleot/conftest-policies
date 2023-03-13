@@ -1,0 +1,6 @@
+name: Testing setup-node (using setup-node without any with)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-node@v3

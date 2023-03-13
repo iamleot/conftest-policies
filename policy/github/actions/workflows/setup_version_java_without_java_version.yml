@@ -1,0 +1,6 @@
+name: Testing setup-java (using setup-java without any with)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-java@v3

@@ -1,0 +1,8 @@
+name: Testing setup-python (using setup-python with a float)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-python@v3
+        with:
+          python-version: 3.10

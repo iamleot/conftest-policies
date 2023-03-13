@@ -1,0 +1,6 @@
+name: Testing setup-python (using setup-python without any with)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-python@v3

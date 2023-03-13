@@ -1,0 +1,8 @@
+name: Testing setup-node (using setup-node with a float)
+
+jobs:
+  build:
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.15
