@@ -14,7 +14,10 @@
 #   description: "`aws_iam_policy_attachment` `hashicorp/aws` provider resource documentation"
 package terraform.aws.aws_iam_policy_attachment
 
+import future.keywords.in
+
 deny_aws_iam_policy_attachment[msg] {
+	some resource
 	input.resource.aws_iam_policy_attachment[resource]
 
 	msg := sprintf(

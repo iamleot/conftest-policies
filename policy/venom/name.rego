@@ -13,6 +13,8 @@
 #   description: 'Venom | Concepts'
 package venom.name
 
+import future.keywords.in
+
 deny_no_name[msg] {
 	# Check explicitly for input.testcases to avoid triggering for user
 	# defined executors
@@ -23,6 +25,7 @@ deny_no_name[msg] {
 }
 
 deny_no_name_in_testcase[msg] {
+	some testcase
 	input.testcases[testcase]
 	not input.testcases[testcase].name
 
@@ -30,6 +33,7 @@ deny_no_name_in_testcase[msg] {
 }
 
 deny_no_name_in_step[msg] {
+	some testcase, step
 	input.testcases[testcase].steps[step]
 	not input.testcases[testcase].steps[step].name
 

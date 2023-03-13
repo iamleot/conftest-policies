@@ -12,7 +12,10 @@
 #   description: 'CWE-400: Uncontrolled Resource Consumption'
 package venom.timeout
 
+import future.keywords.in
+
 deny_no_timeout[msg] {
+	some testcase, step
 	input.testcases[testcase].steps[step]
 	not input.testcases[testcase].steps[step].timeout
 
@@ -23,6 +26,7 @@ deny_no_timeout[msg] {
 }
 
 warn_zero_timeout[msg] {
+	some testcase, step
 	input.testcases[testcase].steps[step].timeout == 0
 
 	msg := sprintf(
