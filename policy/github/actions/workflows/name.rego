@@ -16,7 +16,7 @@ package github.actions.workflows.name
 
 import future.keywords.in
 
-import data.github.actions.workflows.utils as utils
+import data.github.actions.workflows.utils
 
 deny_no_name_in_workflow[msg] {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
