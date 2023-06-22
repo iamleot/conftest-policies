@@ -1,6 +1,7 @@
 .POSIX:
 
 CONFTEST = conftest
+REGAL = regal
 
 all:
 
@@ -11,6 +12,10 @@ check-fmt:
 fmt:
 	@echo "Formatting Rego files"
 	@$(CONFTEST) fmt .
+
+lint:
+	@echo "Linting Rego files"
+	@$(REGAL) lint .
 
 test:
 	@echo "Unit testing conftest rules"
