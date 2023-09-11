@@ -15,7 +15,7 @@ import future.keywords.if
 # description: |
 #  `is_github_dependabot(s)` checks if the path `s` could be GitHub
 #  `dependabot.yml` path.
-#  
+#
 #  GitHub `dependabot.yml` should be under `.github` directory.
 # related_resources:
 # - ref: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
