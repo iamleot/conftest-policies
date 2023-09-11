@@ -15,7 +15,7 @@ import future.keywords.if
 # description: |
 #  `is_github_workflows(s)` checks if the path `s` could be GitHub Actions
 #  workflows path.
-#  
+#
 #  GitHub Actions workflows should be under `.github/workflows` directory and
 #  should ends with `.yml` or `.yaml` file extensions.
 # related_resources:
