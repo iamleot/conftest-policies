@@ -29,8 +29,7 @@ deny_no_name_in_workflow[msg] {
 deny_no_name_in_job[msg] {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
-	some job
-	input.jobs[job]
+	some job in input.jobs
 	not input.jobs[job].name
 
 	msg := sprintf("Job `%v` should have a `name` key", [job])
@@ -39,8 +38,8 @@ deny_no_name_in_job[msg] {
 deny_no_name_in_step[msg] {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
-	some job, step
-	input.jobs[job].steps[step]
+	some job in input.jobs
+	some step in input.jobs[job].steps
 	not input.jobs[job].steps[step].name
 
 	msg := sprintf(
