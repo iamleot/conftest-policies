@@ -25,15 +25,16 @@ deny_no_name[msg] {
 }
 
 deny_no_name_in_testcase[msg] {
-	some testcase in input.testcases
+	some testcase
+	input.testcases[testcase]
 	not input.testcases[testcase].name
 
 	msg := sprintf("Test case `%v` should have a `name` key", [testcase])
 }
 
 deny_no_name_in_step[msg] {
-	some testcase in input.testcases
-	some step in input.testcases[testcase].steps
+	some testcase, step
+	input.testcases[testcase].steps[step]
 	not input.testcases[testcase].steps[step].name
 
 	msg := sprintf(
