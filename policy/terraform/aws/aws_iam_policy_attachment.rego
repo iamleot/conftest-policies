@@ -17,7 +17,8 @@ package terraform.aws.aws_iam_policy_attachment
 import future.keywords.in
 
 deny_aws_iam_policy_attachment[msg] {
-	some resource in input.resource.aws_iam_policy_attachment
+	some resource
+	input.resource.aws_iam_policy_attachment[resource]
 
 	msg := sprintf(
 		"`aws_iam_policy_attachment` `%v` creates exclusive attachment",
