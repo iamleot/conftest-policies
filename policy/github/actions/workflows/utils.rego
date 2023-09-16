@@ -28,11 +28,3 @@ is_github_workflows(s) if {
 is_github_workflows(s) if {
 	glob.match("**/.github/workflows/*.yaml", [], s)
 }
-
-# XXX: Silence the
-# XXX: `? - ... - github.actions.workflows.utils - no policies found'
-# XXX: warning because this package does not contain any policy
-# XXX: otherwise.
-deny if {
-	false
-}
