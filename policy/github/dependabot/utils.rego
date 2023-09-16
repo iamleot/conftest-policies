@@ -23,11 +23,3 @@ import future.keywords.if
 is_github_dependabot(s) if {
 	glob.match("**/.github/dependabot.yml", [], s)
 }
-
-# XXX: Silence the
-# XXX: `? - ... - github.dependabot.utils - no policies found'
-# XXX: warning because this package does not contain any policy
-# XXX: otherwise.
-deny if {
-	false
-}
