@@ -1,0 +1,9 @@
+rules:
+  style:
+    line-length:
+      level: error
+      ignore:
+        files:
+          # Long URLs in related_resources.ref that could not be shortened
+          - "policy/github/dependabot/mandatory_toplevel_keys.rego"
+          - "policy/github/dependabot/utils.rego"
