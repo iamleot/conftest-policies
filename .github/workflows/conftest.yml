@@ -8,6 +8,7 @@ name: Check and validate Conftest Rego policies
 
 env:
   CONFTEST_VERSION: "0.45.0"
+  OPA_VERSION: "0.56.0"
   REGAL_VERSION: "0.8.0"
 
 jobs:
@@ -21,6 +22,11 @@ jobs:
         run: |
           mkdir -p "${HOME}/.local/bin"
           curl -sL "https://github.com/open-policy-agent/conftest/releases/download/v${CONFTEST_VERSION}/conftest_${CONFTEST_VERSION}_Linux_x86_64.tar.gz" | tar xzf - -C "${HOME}/.local/bin" conftest
+      - name: Install opa
+        run: |
+          mkdir -p "${HOME}/.local/bin"
+          curl -o "${HOME}/.local/bin/opa" -sL "https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64"
+          chmod +x "${HOME}/.local/bin/opa" 
       - name: Install regal
         run: |
           mkdir -p "${HOME}/.local/bin"
@@ -35,3 +41,7 @@ jobs:
       - name: Unit testing conftest policies
         run: |
           make test
+      - name: Ensure that all documentation is updated
+        run: |
+          make docs
+          git status --porcelain | awk '{ print } END { exit (NR > 0) }'
