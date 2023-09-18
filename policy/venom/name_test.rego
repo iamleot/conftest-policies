@@ -10,19 +10,19 @@ test_ok_no_name_in_empty_test {
 }
 
 test_deny_no_name {
-	cfg := parse_config_file("no_name.yml")
+	cfg := parse_config_file("testdata/no_name.yml")
 
 	name.deny_no_name with input as cfg
 }
 
 test_deny_no_name_in_testcase {
-	cfg := parse_config_file("no_name_testcase.yml")
+	cfg := parse_config_file("testdata/no_name_testcase.yml")
 
 	name.deny_no_name_in_testcase with input as cfg
 }
 
 test_deny_no_name_in_step {
-	cfg := parse_config_file("no_name_step.yml")
+	cfg := parse_config_file("testdata/no_name_step.yml")
 
 	name.deny_no_name_in_step with input as cfg
 }

@@ -22,7 +22,7 @@ test_deny_no_name_in_empty_workflow {
 }
 
 test_deny_no_name_in_job {
-	cfg := parse_config_file("workflow_with_undocumented_job.yml")
+	cfg := parse_config_file("testdata/workflow_with_undocumented_job.yml")
 
 	name.deny_no_name_in_job with input as cfg
 		with data.conftest.file.dir as dir
@@ -33,7 +33,7 @@ test_deny_no_name_in_job {
 }
 
 test_deny_no_name_in_step {
-	cfg := parse_config_file("workflow_with_undocumented_step.yml")
+	cfg := parse_config_file("testdata/workflow_with_undocumented_step.yml")
 
 	name.deny_no_name_in_step with input as cfg
 		with data.conftest.file.dir as dir
@@ -44,7 +44,7 @@ test_deny_no_name_in_step {
 }
 
 test_ok_documented_workflow {
-	cfg := parse_config_file("documented_workflow.yml")
+	cfg := parse_config_file("testdata/documented_workflow.yml")
 
 	count(name.deny_no_name_in_workflow) == 0 with input as cfg
 		with data.conftest.file.dir as dir
