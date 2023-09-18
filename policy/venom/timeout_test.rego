@@ -9,13 +9,13 @@ test_ok_no_timeout_in_empty_test {
 }
 
 test_deny_no_timeout {
-	cfg := parse_config_file("no_timeout.yml")
+	cfg := parse_config_file("testdata/no_timeout.yml")
 
 	timeout.deny_no_timeout with input as cfg
 }
 
 test_warn_zero_timeout {
-	cfg := parse_config_file("zero_timeout.yml")
+	cfg := parse_config_file("testdata/zero_timeout.yml")
 
 	count(timeout.deny_no_timeout) == 0 with input as cfg
 	timeout.warn_zero_timeout with input as cfg

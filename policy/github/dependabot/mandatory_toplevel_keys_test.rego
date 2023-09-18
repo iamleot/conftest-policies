@@ -33,7 +33,7 @@ test_deny_no_version_in_empty_dependabot {
 }
 
 test_ok_dependabot {
-	cfg := parse_config_file("dependabot.yml")
+	cfg := parse_config_file("testdata/dependabot.yml")
 
 	count(mandatory_toplevel_keys.deny_no_updates) == 0 with input as cfg
 		with data.conftest.file.dir as dir
