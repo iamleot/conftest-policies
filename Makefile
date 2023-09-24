@@ -24,4 +24,4 @@ lint:
 
 test:
 	@echo "Unit testing conftest rules"
-	@$(CONFTEST) verify --policy .
+	@$(CONFTEST) verify --strict --policy .
