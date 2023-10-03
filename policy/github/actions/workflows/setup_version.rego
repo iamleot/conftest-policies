@@ -19,6 +19,7 @@
 #   description: GitHub - actions/setup-node
 # - ref: https://github.com/actions/setup-python
 #   description: GitHub - actions/setup-python
+# entrypoint: true
 package github.actions.workflows.setup_version
 
 import future.keywords.in

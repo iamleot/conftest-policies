@@ -6,6 +6,7 @@
 # related_resources:
 # - ref: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 #   description: Workflow syntax for GitHub Actions
+# entrypoint: true
 package github.actions.workflows.utils
 
 import future.keywords.if

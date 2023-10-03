@@ -11,6 +11,7 @@
 # related_resources:
 # - ref: https://github.com/ovh/venom#concepts
 #   description: 'Venom | Concepts'
+# entrypoint: true
 package venom.name
 
 import future.keywords.in
