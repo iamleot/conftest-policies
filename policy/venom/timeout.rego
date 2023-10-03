@@ -10,6 +10,7 @@
 # related_resources:
 # - ref: https://cwe.mitre.org/data/definitions/400.html
 #   description: 'CWE-400: Uncontrolled Resource Consumption'
+# entrypoint: true
 package venom.timeout
 
 import future.keywords.in

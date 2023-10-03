@@ -6,6 +6,7 @@
 # related_resources:
 # - ref: https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 #   description: Configuration options for the dependabot.yml file
+# entrypoint: true
 package github.dependabot.utils
 
 import future.keywords.if

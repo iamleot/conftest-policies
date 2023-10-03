@@ -12,6 +12,7 @@
 # related_resources:
 # - ref: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy_attachment
 #   description: "`aws_iam_policy_attachment` `hashicorp/aws` provider resource documentation"
+# entrypoint: true
 package terraform.aws.aws_iam_policy_attachment
 
 import future.keywords.in
