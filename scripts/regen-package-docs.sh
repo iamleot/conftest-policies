@@ -21,7 +21,7 @@ fi
 # XXX: because `cfg` depends on functions that are defined only in
 # XXX: conftest and not available in OPA.
 # XXX: Create a temporary bundle without tests to workaround that.
-tmpfile="$(mktemp -t conftest-package-docs)"
+tmpfile="$(mktemp)"
 opa build --bundle --ignore '*_test.rego' --output "${tmpfile}" "$@"
 opa inspect --annotations --format json "${tmpfile}" |
 jq -r '
