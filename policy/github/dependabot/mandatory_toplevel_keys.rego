@@ -9,11 +9,13 @@
 # entrypoint: true
 package github.dependabot.mandatory_toplevel_keys
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
 import data.github.dependabot.utils
 
-deny_no_updates[msg] {
+deny_no_updates contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_dependabot(f)
 	not input.updates
@@ -21,7 +23,7 @@ deny_no_updates[msg] {
 	msg := "`dependabot.yml` should have an `updates` top-level key"
 }
 
-deny_no_version[msg] {
+deny_no_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_dependabot(f)
 	not input.version
@@ -29,7 +31,7 @@ deny_no_version[msg] {
 	msg := "`dependabot.yml` should have `version` top-level key"
 }
 
-deny_incorrect_version[msg] {
+deny_incorrect_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_dependabot(f)
 	not input.version == 2

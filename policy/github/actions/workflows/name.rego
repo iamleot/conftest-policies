@@ -15,11 +15,13 @@
 # entrypoint: true
 package github.actions.workflows.name
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
 import data.github.actions.workflows.utils
 
-deny_no_name_in_workflow[msg] {
+deny_no_name_in_workflow contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	not input.name
@@ -27,7 +29,7 @@ deny_no_name_in_workflow[msg] {
 	msg := "Workflow should have a `name` key"
 }
 
-deny_no_name_in_job[msg] {
+deny_no_name_in_job contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, _ in input.jobs
@@ -36,7 +38,7 @@ deny_no_name_in_job[msg] {
 	msg := sprintf("Job `%v` should have a `name` key", [job])
 }
 
-deny_no_name_in_step[msg] {
+deny_no_name_in_step contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, _ in input.jobs

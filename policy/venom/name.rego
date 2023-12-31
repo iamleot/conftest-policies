@@ -14,9 +14,11 @@
 # entrypoint: true
 package venom.name
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
-deny_no_name[msg] {
+deny_no_name contains msg if {
 	# Check explicitly for input.testcases to avoid triggering for user
 	# defined executors
 	input.testcases
@@ -25,14 +27,14 @@ deny_no_name[msg] {
 	msg := "Test suite should have a `name` key"
 }
 
-deny_no_name_in_testcase[msg] {
+deny_no_name_in_testcase contains msg if {
 	some testcase, _ in input.testcases
 	not input.testcases[testcase].name
 
 	msg := sprintf("Test case `%v` should have a `name` key", [testcase])
 }
 
-deny_no_name_in_step[msg] {
+deny_no_name_in_step contains msg if {
 	some testcase, _ in input.testcases
 	some step, _ in input.testcases[testcase].steps
 	not input.testcases[testcase].steps[step].name

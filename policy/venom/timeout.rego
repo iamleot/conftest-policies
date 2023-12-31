@@ -13,9 +13,11 @@
 # entrypoint: true
 package venom.timeout
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
-deny_no_timeout[msg] {
+deny_no_timeout contains msg if {
 	some testcase, step
 	input.testcases[testcase].steps[step]
 	not input.testcases[testcase].steps[step].timeout
@@ -26,7 +28,7 @@ deny_no_timeout[msg] {
 	)
 }
 
-warn_zero_timeout[msg] {
+warn_zero_timeout contains msg if {
 	some testcase, step
 	input.testcases[testcase].steps[step].timeout == 0
 

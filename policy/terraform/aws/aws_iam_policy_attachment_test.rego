@@ -1,8 +1,10 @@
 package terraform.aws.aws_iam_policy_attachment_test
 
+import future.keywords.if
+
 import data.terraform.aws.aws_iam_policy_attachment
 
-test_deny_aws_iam_policy_attachment {
+test_deny_aws_iam_policy_attachment if {
 	cfg := parse_config(
 		"hcl2",
 		`resource "aws_iam_policy_attachment" "this" {}`,

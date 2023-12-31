@@ -22,11 +22,13 @@
 # entrypoint: true
 package github.actions.workflows.setup_version
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
 import data.github.actions.workflows.utils
 
-deny_setup_go_version[msg] {
+deny_setup_go_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, step
@@ -39,7 +41,7 @@ deny_setup_go_version[msg] {
 	)
 }
 
-deny_setup_java_version[msg] {
+deny_setup_java_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, step
@@ -52,7 +54,7 @@ deny_setup_java_version[msg] {
 	)
 }
 
-deny_setup_node_version[msg] {
+deny_setup_node_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, step
@@ -65,7 +67,7 @@ deny_setup_node_version[msg] {
 	)
 }
 
-deny_setup_python_version[msg] {
+deny_setup_python_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
 	some job, step

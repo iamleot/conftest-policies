@@ -15,9 +15,11 @@
 # entrypoint: true
 package terraform.aws.aws_iam_policy_attachment
 
+import future.keywords.contains
+import future.keywords.if
 import future.keywords.in
 
-deny_aws_iam_policy_attachment[msg] {
+deny_aws_iam_policy_attachment contains msg if {
 	some resource, _ in input.resource.aws_iam_policy_attachment
 
 	msg := sprintf(
