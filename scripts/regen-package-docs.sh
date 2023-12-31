@@ -16,7 +16,14 @@ if [ $# -le 0 ]; then
 	exit 1
 fi
 
-opa inspect --annotations --format json "$@" |
+# XXX: Running `opa inspect` directly against paths will fail due:
+# XXX:  ..._test.rego:x: rego_unsafe_var_error: var cfg is unsafe
+# XXX: because `cfg` depends on functions that are defined only in
+# XXX: conftest and not available in OPA.
+# XXX: Create a temporary bundle without tests to workaround that.
+tmpfile="$(mktemp -t conftest-package-docs)"
+opa build --bundle --ignore '*_test.rego' --output "${tmpfile}" "$@"
+opa inspect --annotations --format json "${tmpfile}" |
 jq -r '
 	[
 		.annotations[] |
@@ -73,3 +80,5 @@ awk '
 	print
 }
 '
+
+rm -f "${tmpfile}"
