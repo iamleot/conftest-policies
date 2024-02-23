@@ -1,6 +1,6 @@
 package venom.timeout_test
 
-import future.keywords.if
+import rego.v1
 
 import data.venom.timeout
 

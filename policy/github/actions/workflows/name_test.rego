@@ -1,6 +1,6 @@
 package github.actions.workflows.name_test
 
-import future.keywords.if
+import rego.v1
 
 import data.github.actions.workflows.name
 

@@ -1,6 +1,6 @@
 package terraform.aws.aws_iam_policy_attachment_test
 
-import future.keywords.if
+import rego.v1
 
 import data.terraform.aws.aws_iam_policy_attachment
 
