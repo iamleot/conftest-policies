@@ -9,7 +9,7 @@
 # entrypoint: true
 package github.actions.workflows.utils
 
-import future.keywords.if
+import rego.v1
 
 # METADATA
 # title: Checks if a string matches GitHub Actions workflows path

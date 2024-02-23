@@ -9,9 +9,7 @@
 # entrypoint: true
 package github.dependabot.mandatory_toplevel_keys
 
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+import rego.v1
 
 import data.github.dependabot.utils
 

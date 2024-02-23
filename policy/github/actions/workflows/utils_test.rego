@@ -1,6 +1,6 @@
 package github.actions.workflows.utils_test
 
-import future.keywords.if
+import rego.v1
 
 import data.github.actions.workflows.utils
 

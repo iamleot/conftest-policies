@@ -13,9 +13,7 @@
 # entrypoint: true
 package venom.timeout
 
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+import rego.v1
 
 deny_no_timeout contains msg if {
 	some testcase, step

@@ -14,9 +14,7 @@
 # entrypoint: true
 package venom.name
 
-import future.keywords.contains
-import future.keywords.if
-import future.keywords.in
+import rego.v1
 
 deny_no_name contains msg if {
 	# Check explicitly for input.testcases to avoid triggering for user

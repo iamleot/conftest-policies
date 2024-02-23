@@ -1,6 +1,6 @@
 package github.dependabot.mandatory_toplevel_keys_test
 
-import future.keywords.if
+import rego.v1
 
 import data.github.dependabot.mandatory_toplevel_keys
 
