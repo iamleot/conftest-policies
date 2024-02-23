@@ -23,7 +23,7 @@ jobs:
       - name: Setup opa
         uses: open-policy-agent/setup-opa@v2
       - name: Setup regal
-        uses: StyraInc/setup-regal@v0.2.0
+        uses: StyraInc/setup-regal@v1.0.0
       - name: Checking Rego formatting style
         run: |
           make check-fmt
