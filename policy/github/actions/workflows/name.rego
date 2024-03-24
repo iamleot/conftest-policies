@@ -20,7 +20,7 @@ import rego.v1
 import data.github.actions.workflows.utils
 
 deny_no_name_in_workflow contains msg if {
-	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
 	not input.name
 
@@ -28,7 +28,7 @@ deny_no_name_in_workflow contains msg if {
 }
 
 deny_no_name_in_job contains msg if {
-	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
 	some job, _ in input.jobs
 	not input.jobs[job].name
@@ -37,7 +37,7 @@ deny_no_name_in_job contains msg if {
 }
 
 deny_no_name_in_step contains msg if {
-	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
+	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
 	some job, _ in input.jobs
 	some step, _ in input.jobs[job].steps
