@@ -22,6 +22,7 @@ import rego.v1
 # related_resources:
 # - ref: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
 #   description: Workflow syntax for GitHub Actions
+# scope: document
 is_github_workflows(s) if {
 	glob.match("**/.github/workflows/*.yml", [], s)
 }
