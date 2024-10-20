@@ -10,6 +10,8 @@ set -eu
 
 : ${REGEN_PACKAGE_DOCS:="./scripts/regen-package-docs.sh"}
 
-find . -name '*.rego' -exec dirname {} \; | sort -u | while read d; do
+find ./policy -name 'README.md' -exec dirname {} \; |
+sort -u |
+while read d; do
 	${REGEN_PACKAGE_DOCS} "${d}" > "${d}/README.md"
 done
