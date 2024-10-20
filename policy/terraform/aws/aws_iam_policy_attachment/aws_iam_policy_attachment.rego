@@ -17,6 +17,10 @@ package terraform.aws.aws_iam_policy_attachment
 
 import rego.v1
 
+# METADATA
+# description: |
+#  Deny aws_iam_policy_attachment usage.
+# scope: rule
 deny_aws_iam_policy_attachment contains msg if {
 	some resource, _ in input.resource.aws_iam_policy_attachment
 

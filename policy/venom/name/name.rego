@@ -16,6 +16,10 @@ package venom.name
 
 import rego.v1
 
+# METADATA
+# description: |
+#  Deny test suite without name.
+# scope: rule
 deny_no_name contains msg if {
 	# Check explicitly for input.testcases to avoid triggering for user
 	# defined executors
@@ -25,6 +29,10 @@ deny_no_name contains msg if {
 	msg := "Test suite should have a `name` key"
 }
 
+# METADATA
+# description: |
+#  Deny test case without name.
+# scope: rule
 deny_no_name_in_testcase contains msg if {
 	some testcase, _ in input.testcases
 	not input.testcases[testcase].name
@@ -32,6 +40,10 @@ deny_no_name_in_testcase contains msg if {
 	msg := sprintf("Test case `%v` should have a `name` key", [testcase])
 }
 
+# METADATA
+# description: |
+#  Deny step without name.
+# scope: rule
 deny_no_name_in_step contains msg if {
 	some testcase, _ in input.testcases
 	some step, _ in input.testcases[testcase].steps

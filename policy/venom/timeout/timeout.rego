@@ -15,6 +15,10 @@ package venom.timeout
 
 import rego.v1
 
+# METADATA
+# description: |
+#  Deny step without timeout.
+# scope: rule
 deny_no_timeout contains msg if {
 	some testcase, step
 	input.testcases[testcase].steps[step]
@@ -26,6 +30,10 @@ deny_no_timeout contains msg if {
 	)
 }
 
+# METADATA
+# description: |
+#  Warn step with 0 timeout.
+# scope: rule
 warn_zero_timeout contains msg if {
 	some testcase, step
 	input.testcases[testcase].steps[step].timeout == 0

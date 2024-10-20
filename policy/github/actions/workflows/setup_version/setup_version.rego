@@ -26,6 +26,10 @@ import rego.v1
 
 import data.github.actions.workflows.utils
 
+# METADATA
+# description: |
+#  Deny non-string go-version:.
+# scope: rule
 deny_setup_go_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
@@ -39,6 +43,10 @@ deny_setup_go_version contains msg if {
 	)
 }
 
+# METADATA
+# description: |
+#  Deny non-string java-version:.
+# scope: rule
 deny_setup_java_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
@@ -52,6 +60,10 @@ deny_setup_java_version contains msg if {
 	)
 }
 
+# METADATA
+# description: |
+#  Deny non-string node-version:.
+# scope: rule
 deny_setup_node_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
@@ -65,6 +77,10 @@ deny_setup_node_version contains msg if {
 	)
 }
 
+# METADATA
+# description: |
+#  Deny non-string python-version:.
+# scope: rule
 deny_setup_python_version contains msg if {
 	f := concat("/", [data.conftest.file.dir, data.conftest.file.name])
 	utils.is_github_workflows(f)
