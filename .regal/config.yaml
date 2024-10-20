@@ -3,6 +3,12 @@ project:
     - policy
 
 rules:
+  custom:
+    missing-metadata:
+      level: error
+      ignore:
+        files:
+          - "*_test.rego"
   style:
     line-length:
       level: error

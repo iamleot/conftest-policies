@@ -19,6 +19,10 @@ import rego.v1
 
 import data.github.actions.workflows.utils
 
+# METADATA
+# description: |
+#  Deny workflow without name.
+# scope: rule
 deny_no_name_in_workflow contains msg if {
 	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
@@ -27,6 +31,10 @@ deny_no_name_in_workflow contains msg if {
 	msg := "Workflow should have a `name` key"
 }
 
+# METADATA
+# description: |
+#  Deny job without name.
+# scope: rule
 deny_no_name_in_job contains msg if {
 	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
@@ -36,6 +44,10 @@ deny_no_name_in_job contains msg if {
 	msg := sprintf("Job `%v` should have a `name` key", [job])
 }
 
+# METADATA
+# description: |
+#  Deny step without name.
+# scope: rule
 deny_no_name_in_step contains msg if {
 	f := concat("/", [sprintf("%s", [data.conftest.file.dir]), sprintf("%s", [data.conftest.file.name])])
 	utils.is_github_workflows(f)
