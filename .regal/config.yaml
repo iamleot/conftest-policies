@@ -1,4 +1,9 @@
 rules:
+  idiomatic:
+    directory-package-mismatch:
+      # FIXME: We should not ignore that but this need some code
+      # FIXME: reorganization for modules that are reused.
+      level: ignore
   style:
     line-length:
       level: error
