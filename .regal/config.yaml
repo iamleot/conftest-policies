@@ -1,3 +1,7 @@
+project:
+  roots:
+    - policy
+
 rules:
   idiomatic:
     directory-package-mismatch:
