@@ -5,6 +5,8 @@ name: Check and validate Conftest Rego policies
     branches:
       - main
   pull_request:
+  schedule:
+    - cron: '12 3 * * 3'
 
 env:
   CONFTEST_VERSION: "0.56.0"
