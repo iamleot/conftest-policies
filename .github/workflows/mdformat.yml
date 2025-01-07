@@ -5,6 +5,8 @@ name: Check Markdown formatting via mdformat
     branches:
       - main
   pull_request:
+  schedule:
+    - cron: '12 3 * * 3'
 
 jobs:
   mdformat:
