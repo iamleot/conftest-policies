@@ -17,7 +17,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Validate via personal conftest policies
         uses: docker://openpolicyagent/conftest:latest
-        env:
-          CONFTEST_POLICIES: git::https://github.com/iamleot/conftest-policies.git//policy/github
         with:
-          args: test --all-namespaces --update "${{ env.CONFTEST_POLICIES }}" .github/workflows
+          args: test --all-namespaces .github/workflows
