@@ -9,6 +9,10 @@ rules:
       ignore:
         files:
           - "*_test.rego"
+  imports:
+    unresolved-reference:
+      except-paths:
+        - data.conftest.file.*
   style:
     line-length:
       level: error
