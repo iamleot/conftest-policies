@@ -1,4 +1,5 @@
 name: Check and validate Conftest Rego policies
+permissions: {}
 
 'on':
   push:
