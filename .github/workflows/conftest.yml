@@ -10,7 +10,7 @@ permissions: {}
     - cron: '12 3 * * 3'
 
 env:
-  CONFTEST_VERSION: "0.56.0"
+  CONFTEST_VERSION: "0.71.1"
 
 jobs:
   conftest:
