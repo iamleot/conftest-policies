@@ -41,7 +41,7 @@ deny_no_name_in_job contains msg if {
 	some job, _ in input.jobs
 	not input.jobs[job].name
 
-	msg := sprintf("Job `%v` should have a `name` key", [job])
+	msg := $"Job `${job}` should have a `name` key"
 }
 
 # METADATA
@@ -55,8 +55,5 @@ deny_no_name_in_step contains msg if {
 	some step, _ in input.jobs[job].steps
 	not input.jobs[job].steps[step].name
 
-	msg := sprintf(
-		"Step `%v` of job `%v` should have a `name` key",
-		[step, job],
-	)
+	msg := $"Step `${step}` of job `${job}` should have a `name` key"
 }

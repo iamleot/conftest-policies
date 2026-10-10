@@ -24,8 +24,5 @@ import rego.v1
 deny_aws_iam_policy_attachment contains msg if {
 	some resource, _ in input.resource.aws_iam_policy_attachment
 
-	msg := sprintf(
-		"`aws_iam_policy_attachment` `%v` creates exclusive attachment",
-		[resource],
-	)
+	msg := $"`aws_iam_policy_attachment` `${resource}` creates exclusive attachment"
 }

@@ -37,7 +37,7 @@ deny_no_name_in_testcase contains msg if {
 	some testcase, _ in input.testcases
 	not input.testcases[testcase].name
 
-	msg := sprintf("Test case `%v` should have a `name` key", [testcase])
+	msg := $"Test case `${testcase}` should have a `name` key"
 }
 
 # METADATA
@@ -49,8 +49,5 @@ deny_no_name_in_step contains msg if {
 	some step, _ in input.testcases[testcase].steps
 	not input.testcases[testcase].steps[step].name
 
-	msg := sprintf(
-		"Step `%v` of test case `%v` should have a `name` key",
-		[step, testcase],
-	)
+	msg := $"Step `${step}` of test case `${testcase}` should have a `name` key"
 }

@@ -37,10 +37,7 @@ deny_setup_go_version contains msg if {
 	startswith(input.jobs[job].steps[step].uses, "actions/setup-go")
 	not is_string(input.jobs[job].steps[step]["with"]["go-version"])
 
-	msg := sprintf(
-		"`go-version` in step `%v` of job `%v` that uses `actions/setup-go` should be a string",
-		[step, job],
-	)
+	msg := $"`go-version` in step `${step}` of job `${job}` that uses `actions/setup-go` should be a string"
 }
 
 # METADATA
@@ -54,10 +51,7 @@ deny_setup_java_version contains msg if {
 	startswith(input.jobs[job].steps[step].uses, "actions/setup-java")
 	not is_string(input.jobs[job].steps[step]["with"]["java-version"])
 
-	msg := sprintf(
-		"`java-version` in step `%v` of job `%v` that uses `actions/setup-java` should be a string",
-		[step, job],
-	)
+	msg := $"`java-version` in step `${step}` of job `${job}` that uses `actions/setup-java` should be a string"
 }
 
 # METADATA
@@ -71,10 +65,7 @@ deny_setup_node_version contains msg if {
 	startswith(input.jobs[job].steps[step].uses, "actions/setup-node")
 	not is_string(input.jobs[job].steps[step]["with"]["node-version"])
 
-	msg := sprintf(
-		"`node-version` in step `%v` of job `%v` that uses `actions/setup-node` should be a string",
-		[step, job],
-	)
+	msg := $"`node-version` in step `${step}` of job `${job}` that uses `actions/setup-node` should be a string"
 }
 
 # METADATA
@@ -88,8 +79,5 @@ deny_setup_python_version contains msg if {
 	startswith(input.jobs[job].steps[step].uses, "actions/setup-python")
 	not is_string(input.jobs[job].steps[step]["with"]["python-version"])
 
-	msg := sprintf(
-		"`python-version` in step `%v` of job `%v` that uses `actions/setup-python` should be a string",
-		[step, job],
-	)
+	msg := $"`python-version` in step `${step}` of job `${job}` that uses `actions/setup-python` should be a string"
 }

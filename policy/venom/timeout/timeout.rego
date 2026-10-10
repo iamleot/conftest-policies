@@ -24,10 +24,7 @@ deny_no_timeout contains msg if {
 	input.testcases[testcase].steps[step]
 	not input.testcases[testcase].steps[step].timeout
 
-	msg := sprintf(
-		"Test case `%v` of step `%v` should have a `timeout`",
-		[testcase, step],
-	)
+	msg := $"Test case `${testcase}` of step `${step}` should have a `timeout`"
 }
 
 # METADATA
@@ -38,8 +35,5 @@ warn_zero_timeout contains msg if {
 	some testcase, step
 	input.testcases[testcase].steps[step].timeout == 0
 
-	msg := sprintf(
-		"Test case `%v` of step `%v` has an infinite `timeout`",
-		[testcase, step],
-	)
+	msg := $"Test case `${testcase}` of step `${step}` has an infinite `timeout`"
 }
